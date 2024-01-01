@@ -8,8 +8,7 @@ concurrency
 """
 import asyncio
 import importlib
-from typing import List, Callable
-from random import uniform
+from typing import List
 wait_random = importlib.import_module('0-basic_async_syntax').wait_random
 
 
