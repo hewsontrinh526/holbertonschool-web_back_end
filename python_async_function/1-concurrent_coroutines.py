@@ -7,8 +7,8 @@ list if the delay should be ascending order without using sort() because of
 concurrency
 """
 import asyncio
-import importlib
 from typing import List
+import importlib
 wait_random = importlib.import_module('0-basic_async_syntax').wait_random
 
 
