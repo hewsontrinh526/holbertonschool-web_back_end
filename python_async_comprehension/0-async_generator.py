@@ -2,9 +2,9 @@
 """
 A coroutine called async_generator that takes no arguments
 """
+from random import random
 import asyncio
-import random
-from typing import Generator
+from typing import Generator, AsyncGenerator
 
 
 async def async_generator() -> Generator[float, None, None]:
