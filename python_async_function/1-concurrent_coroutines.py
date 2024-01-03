@@ -6,6 +6,7 @@ max_delay. wait_n should return the list of all the delays (float values). The
 list if the delay should be ascending order without using sort() because of
 concurrency
 """
+import asyncio
 from typing import List
 
 wait_random = __import__('0-basic_async_syntax').wait_random
@@ -15,7 +16,14 @@ async def wait_n(n: int, max_delay: int) -> List[float]:
     """
     Returns the list of all the delays (float values)
     """
-    delays: List[float] = []
+    delays = []
+    tasks = []
+
     for i in range(n):
-        delays.append(await wait_random(max_delay))
-    return sorted(delays)
+        tasks.append(wait_random(max_delay))
+
+    for task in asyncio.as_completed(tasks):
+        result = await task
+        delays.append(result)
+
+    return delays
