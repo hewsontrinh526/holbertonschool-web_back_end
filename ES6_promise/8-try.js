@@ -6,6 +6,7 @@ export default function divideFunction(numerator, demoninator) {
   try {
     return numerator / demoninator;
   } catch (error) {
-    throw new Error('Cannot divide by 0');
+    console.error(error);
+    return error;
   }
 }
